@@ -14,6 +14,10 @@ export const metadata = createPageMetadata({
 });
 
 export default function MediaPage() {
+  const hasAuthorPortrait = !(
+    featuredBook.authorPortraitSrc.startsWith("[") && featuredBook.authorPortraitSrc.endsWith("]")
+  );
+
   return (
     <div className="space-y-14 md:space-y-20">
       <PageHero
@@ -38,16 +42,18 @@ export default function MediaPage() {
       </Section>
 
       <section className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
-          <div className="mx-auto w-full max-w-[380px]">
-            <PlaceholderImage
-              src={featuredBook.authorPortraitSrc}
-              alt={featuredBook.authorPortraitAlt}
-              label={mediaPageContent.portraitLabel}
-              caption={mediaPageContent.portraitCaption}
-              className="min-h-[360px]"
-            />
-          </div>
+        <div className={hasAuthorPortrait ? "grid gap-8 sm:grid-cols-2 lg:grid-cols-1" : "grid gap-8"}>
+          {hasAuthorPortrait ? (
+            <div className="mx-auto w-full max-w-[380px]">
+              <PlaceholderImage
+                src={featuredBook.authorPortraitSrc}
+                alt={featuredBook.authorPortraitAlt}
+                label={mediaPageContent.portraitLabel}
+                caption={mediaPageContent.portraitCaption}
+                className="min-h-[360px]"
+              />
+            </div>
+          ) : null}
           <div className="mx-auto w-full max-w-[320px]">
             <PlaceholderImage
               src={featuredBook.coverSrc}

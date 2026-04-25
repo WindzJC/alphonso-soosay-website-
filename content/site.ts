@@ -142,7 +142,7 @@ export const featuredBook = {
   topics: ["Audio recording", "Live sound", "Room acoustics"],
   coverSrc: "/assets/images/my-passion-audio-awareness-cover.gif",
   coverAlt: "Book cover for My Passion Audio Awareness by Alphonso Soosay",
-  authorPortraitSrc: "[AUTHOR_PORTRAIT]",
+  authorPortraitSrc: "/assets/images/alphonso-soosay-portrait.png",
   authorPortraitAlt: "Portrait of Alphonso Soosay",
   coverPlaceholder: "[BOOK_COVER_MY_PASSION_AUDIO_AWARENESS]",
   authorPortraitPlaceholder: "[AUTHOR_PORTRAIT]",

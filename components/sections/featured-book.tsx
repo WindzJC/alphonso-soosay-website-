@@ -15,29 +15,27 @@ export function FeaturedBook() {
       title={featuredBookContent.title}
       body={featuredBookContent.body}
     >
-      <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+      <div className="grid gap-10 md:gap-12 lg:grid-cols-[minmax(260px,0.58fr)_minmax(0,1.42fr)] lg:items-start">
         <div className="flex justify-center lg:justify-start">
-          <div className="w-full max-w-[320px]">
+          <div className="w-full max-w-[300px] sm:max-w-[320px] lg:pt-2">
             <PlaceholderImage
               src={featuredBook.coverSrc}
               alt={featuredBook.coverAlt}
               label={featuredBook.coverLabel}
               aspect="portrait"
               className="mx-auto"
+              frameClassName="rounded-[2.25rem] shadow-[0_34px_100px_rgba(0,0,0,0.4)]"
             />
           </div>
         </div>
 
-        <div className="max-w-3xl space-y-8">
-          <div className="border-b border-white/10 pb-8">
-            <p className="text-[0.72rem] uppercase tracking-[0.34em] text-[var(--accent-soft)]">
-              {featuredBookContent.publishedWorkLabel}
-            </p>
-            <h3 className="mt-4 font-display text-3xl leading-tight text-[var(--text)] sm:text-4xl">
+        <div className="max-w-3xl space-y-7 md:space-y-8">
+          <div className="border-b border-white/10 pb-7 md:pb-8">
+            <h3 className="font-display text-3xl leading-tight text-[var(--text)] sm:text-4xl">
               {featuredBook.title}
             </h3>
             <p className="mt-3 text-lg leading-8 text-[var(--text-soft)]">{featuredBook.subtitle}</p>
-            <div className="mt-6 flex items-start gap-3">
+            <div className="mt-6 flex items-start gap-3 md:gap-4">
               <div className="mt-1 flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgba(193,149,77,0.14)] text-[var(--accent-soft)]">
                 <BookOpenText className="h-5 w-5" />
               </div>
@@ -55,7 +53,7 @@ export function FeaturedBook() {
 
           <BookDetails />
 
-          <div className="border-t border-white/10 pt-7">
+          <div className="border-t border-white/10 pt-6 md:pt-7">
             <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-soft)]">
               Core Topics
             </p>
@@ -71,7 +69,7 @@ export function FeaturedBook() {
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-7">
+          <div className="border-t border-white/10 pt-6 md:pt-7">
             <p className="text-[0.72rem] uppercase tracking-[0.3em] text-[var(--accent-soft)]">
               Retail Links
             </p>

@@ -13,6 +13,10 @@ export const metadata = createPageMetadata({
 });
 
 export default function AboutPage() {
+  const hasAuthorPortrait = !(
+    featuredBook.authorPortraitSrc.startsWith("[") && featuredBook.authorPortraitSrc.endsWith("]")
+  );
+
   return (
     <div className="space-y-14 md:space-y-20">
       <PageHero
@@ -22,16 +26,24 @@ export default function AboutPage() {
         aside={<p>{aboutPageContent.aside}</p>}
       />
 
-      <section className="grid gap-10 lg:grid-cols-[0.74fr_1.26fr] lg:items-start">
-        <div className="mx-auto w-full max-w-[420px]">
-          <PlaceholderImage
-            src={featuredBook.authorPortraitSrc}
-            alt={featuredBook.authorPortraitAlt}
-            label={aboutPageContent.portraitLabel}
-            caption={aboutPageContent.portraitCaption}
-            className="min-h-[440px]"
-          />
-        </div>
+      <section
+        className={
+          hasAuthorPortrait
+            ? "grid gap-10 lg:grid-cols-[0.74fr_1.26fr] lg:items-start"
+            : "max-w-3xl"
+        }
+      >
+        {hasAuthorPortrait ? (
+          <div className="mx-auto w-full max-w-[420px]">
+            <PlaceholderImage
+              src={featuredBook.authorPortraitSrc}
+              alt={featuredBook.authorPortraitAlt}
+              label={aboutPageContent.portraitLabel}
+              caption={aboutPageContent.portraitCaption}
+              className="min-h-[440px]"
+            />
+          </div>
+        ) : null}
 
         <div className="space-y-10">
           <div className="max-w-2xl border-t border-white/10 pt-6">
